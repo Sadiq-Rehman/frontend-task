@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sadiq | Portfolio Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header / Banner Landmark -->
+    <header role="banner" class="site-header">
+        <div class="container header-container">
+            <h1 class="logo">Portfolio<span>.</span></h1>
+            <nav role="navigation" aria-label="Main Navigation">
+                <ul class="nav-list">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Wrapper using 12-Column Grid -->
+    <div class="container">
+        <div class="row">
+            
+            <!-- Main Content Area (Takes 8 columns on desktop) -->
+            <main role="main" id="main-content" class="site-main col-12 col-lg-8">
+                
+                <!-- Hero Section -->
+                <section class="hero-section" aria-labelledby="hero-title">
+                    <h2 id="hero-title">Hi, I'm Sadiq</h2>
+                    <p class="hero-subtitle">Software Engineering Intern & Frontend Developer building responsive, accessible web experiences.</p>
+                    <a href="#projects" class="btn">View Projects</a>
+                </section>
+
+                <!-- Projects Section -->
+                <section id="projects" class="projects-section" aria-labelledby="projects-title">
+                    <h2 id="projects-title">Featured Projects</h2>
+                    <div class="project-grid">
+                        <article class="project-card">
+                            <h3>Task Manager App</h3>
+                            <p>An advanced vanilla JavaScript task manager featuring CRUD operations, LocalStorage persistence, and API integration.</p>
+                        </article>
+                        <article class="project-card">
+                            <h3>Book Management System</h3>
+                            <p>A multi-layer backend project built with Spring Boot, MySQL, and microservices architecture.</p>
+                        </article>
+                    </div>
+                </section>
+
+            </main>
+
+            <!-- Sidebar / Aside Area (Takes 4 columns on desktop) -->
+            <aside role="complementary" aria-label="Sidebar Profile Info" class="site-aside col-12 col-lg-4">
+                <div class="sidebar-box">
+                    <h3>About Me</h3>
+                    <p>Passionate about clean code, backend software architecture, and building responsive user interfaces using modern web standards.</p>
+                </div>
+            </aside>
+
+        </div>
+    </div>
+
+    <!-- Footer / Content Info Landmark -->
+    <footer role="contentinfo" class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Sadiq. Built with HTML5, CSS Grid, and Modern Best Practices.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
