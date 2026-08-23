@@ -1,0 +1,42 @@
+// src/services/api.js
+
+const API_BASE_URL = 'http://localhost:8080/api/chat';
+
+export const streamMessageFromApi = async (model, prompt, onChunkReceived) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/stream`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ model, prompt }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to connect to server');
+    }
+    if (!response.body) {
+      throw new Error('Streaming response body is unavailable.');
+    }
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let accumulatedResponse = '';
+
+    while (true) {
+      const { value, done } = await reader.read();
+      if (done) break;
+
+      const chunk = decoder.decode(value, { stream: true });
+      accumulatedResponse += chunk;
+      
+      // Har naye chunk par UI update karne ke liye callback call karein
+      onChunkReceived(accumulatedResponse);
+    }
+
+    return accumulatedResponse;
+  } catch (error) {
+    console.error('Error connecting to backend streaming:', error);
+    throw new Error(error.message || 'Could not connect to backend server.');
+  }
+};
