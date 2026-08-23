@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Vanilla JS Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+
+    <!-- Header / Landmark -->
+    <header role="banner" class="site-header">
+        <div class="container header-container">
+            <h1>Task Manager Pro</h1>
+            <nav role="navigation" aria-label="Main Navigation">
+                <ul class="nav-list">
+                    <li><a href="#main-content">Tasks</a></li>
+                    <li><a href="#api-panel">API Panel</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 12-Column Grid Layout -->
+    <div class="container">
+        <div class="row">
+            
+            <!-- Main Content Area (8 Columns) -->
+            <main role="main" id="main-content" class="site-main col-12 col-lg-8">
+                <section aria-labelledby="task-dashboard-title">
+                    <h2 id="task-dashboard-title">Task Dashboard</h2>
+                    
+                    <!-- Search & Filter Controls -->
+                    <div class="controls-bar">
+                        <input type="text" id="search-input" placeholder="Search tasks..." aria-label="Search tasks">
+                        <select id="filter-select" aria-label="Filter tasks by status">
+                            <option value="all">All Tasks</option>
+                            <option value="pending">Pending</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+
+                    <!-- Dynamic Task Container -->
+                    <div id="task-container"></div>
+                </section>
+            </main>
+
+            <!-- Sidebar / Aside Area (4 Columns) -->
+            <aside role="complementary" aria-label="Sidebar Controls" class="site-aside col-12 col-lg-4">
+                
+                <!-- User Profile Section -->
+                <section aria-labelledby="profile-title" class="sidebar-box">
+                    <h3 id="profile-title">User Profile</h3>
+                    <div id="welcome-greeting" class="welcome-greeting"></div>
+                    <form id="name-form">
+                        <div class="form-group">
+                            <label for="user-name-input">Your Name</label>
+                            <input type="text" id="user-name-input" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <label>
+                                <input type="checkbox" id="save-name-checkbox"> Remember my name
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-sm">Save Name</button>
+                    </form>
+                </section>
+
+                <!-- Add Task Form -->
+                <section aria-labelledby="form-title" class="sidebar-box">
+                    <h3 id="form-title">Add New Task</h3>
+                    <form id="task-form" novalidate>
+                        <div class="form-group">
+                            <label for="task-title-input">Task Title *</label>
+                            <input type="text" id="task-title-input" aria-describedby="title-error" required>
+                            <span id="title-error" class="error-message" aria-live="polite"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="task-date-input">Due Date *</label>
+                            <input type="date" id="task-date-input" aria-describedby="date-error" required>
+                            <span id="date-error" class="error-message" aria-live="polite"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="task-priority-input">Priority *</label>
+                            <select id="task-priority-input" aria-describedby="priority-error">
+                                <option value="Low">Low</option>
+                                <option value="Medium" selected>Medium</option>
+                                <option value="High">High</option>
+                            </select>
+                            <span id="priority-error" class="error-message" aria-live="polite"></span>
+                        </div>
+
+                        <button type="submit" class="btn">Add Task</button>
+                    </form>
+                </section>
+
+                <!-- API Panel -->
+                <section id="api-panel" aria-labelledby="api-title" class="sidebar-box">
+                    <h3 id="api-title">API Integration</h3>
+                    <p class="text-muted">Fetch mock tasks from JSONPlaceholder.</p>
+                    <button id="fetch-api-btn" class="btn btn-secondary">Fetch External Tasks</button>
+                </section>
+
+            </aside>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer role="contentinfo" class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Sadiq. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
